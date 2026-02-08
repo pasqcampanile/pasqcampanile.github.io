@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Pasquale Campanile, Hardware & Mechatronic Engineer specializing in PCB Design, UAVs, and Embedded Systems.">
+    <title>Pasquale Campanile | Hardware Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        tech: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                            dark: '#0f172a',
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(45deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.5) 50%, rgba(56,189,248,0) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500/30">
+
+    <!-- Background Grid Animation -->
+    <div class="fixed inset-0 z-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-mono font-bold text-xl tracking-tighter flex items-center gap-2 group">
+                <span class="text-cyan-400 group-hover:neon-text transition-all duration-300">&lt;PC /&gt;</span>
+                <span class="hidden sm:inline text-slate-300">Campanile_Eng</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-1 font-mono text-xs text-slate-400">
+                <a href="#about" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">01. About</a>
+                <a href="#experience" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">02. Experience</a>
+                <a href="#projects" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">03. Projects</a>
+                <a href="#contact" class="px-4 py-2 text-cyan-400 border border-cyan-500/30 rounded hover:bg-cyan-500/10 transition-colors">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-40 pb-32 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="font-mono text-cyan-400 mb-6 tracking-wide text-sm animate-fade-in-up">Hi, my name is</div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tight text-slate-100 mb-4 leading-tight">
+                Pasquale Campanile.
+            </h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-slate-400 mb-8 leading-tight">
+                I build the nervous systems of <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">autonomous machines.</span>
+            </h2>
+            
+            <p class="max-w-2xl text-lg text-slate-400 leading-relaxed mb-12">
+                I am a <strong>Mechatronic & Hardware Engineer</strong> specializing in high-density PCB design, embedded systems, and aerial robotics. Currently finalizing my Master's in Electronic Engineering at <span class="text-cyan-300">Federico II</span>, I bridge the gap between complex algorithms and physical hardware.
+            </p>
+
+            <div class="flex flex-wrap gap-4 font-mono text-sm">
+                <a href="#projects" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white rounded font-bold transition-all hover:shadow-[0_0_20px_rgba(8,145,178,0.4)]">
+                    Check my work
+                </a>
+                <a href="https://github.com/pasqcampanile" target="_blank" class="px-8 py-4 glass-panel hover:bg-slate-800 text-cyan-300 rounded font-bold transition-all border border-cyan-900 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    github/pasqcampanile
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decoration: PCB Traces hint -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full opacity-10 hidden lg:block pointer-events-none">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#06b6d4" stroke-width="0.5" d="M10,10 L50,10 L50,50 L100,50 M150,150 L100,150 L100,100" />
+                <circle cx="50" cy="50" r="2" fill="#06b6d4" />
+                <circle cx="100" cy="50" r="2" fill="#06b6d4" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 max-w-4xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <span class="font-mono text-cyan-400 text-xl">02.</span>
+            <h2 class="text-3xl font-bold text-slate-100">Where I've Worked</h2>
+            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+        </div>
+
+        <div class="relative border-l border-slate-700 ml-3 space-y-16">
+            
+            <!-- Neabotics -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Hardware Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">June 2022 - Present</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ Neabotics / PrismaLab</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span><strong>Patent Inventor (Crawler):</strong> Led the electronic architecture design for a patented magnetic robot for NDT inspections. Achieved extreme miniaturization for operation in tight industrial pipelines.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Designed custom <strong>4-layer PCBs</strong> integrating STM32 MCUs, H-Bridge motor drivers, and high-efficiency DC/DC converters.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Developed <strong>ATEX-compliant</strong> hardware solutions for drones operating in explosive atmospheres, focusing on intrinsic safety and EMI shielding.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Engineered the <strong>PDB (Power Distribution Board)</strong> for the "Aerial Core" project, managing high-current loads for a drone-mounted robotic arm.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- UniNa Corse -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-cyan-500 transition-colors"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Embedded System Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">Sep 2020 - July 2023</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ UniNa Corse (Formula Student)</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Winner of the <strong>TeoRace Award</strong> for best embedded system implementation in Formula Student Italy.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Designed the complete <strong>wiring harness</strong> and control unit PCBs for the autonomous racing vehicle (Driverless class).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Implemented <strong>CAN Bus</strong> communication networks for real-time telemetry, LiDAR, and steering actuation.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3EM -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-cyan-500 transition-colors"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Automation Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">Mar 2022 - May 2022</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ 3EM for Fincantieri</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Developed SCADA/HMI interfaces for HVAC systems on the "Explora I" cruise ship using CitectSCADA.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <span class="font-mono text-cyan-400 text-xl">03.</span>
+            <h2 class="text-3xl font-bold text-slate-100">Featured Projects</h2>
+            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Project Card 1: Crawler -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                    <!-- Placeholder for Image -->
+                    <div class="w-full h-full flex items-center justify-center text-slate-600 font-mono text-xs z-0">
+                        [Insert Crawler_PCB_Render.png]
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Industrial NDT Crawler</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        A patented magnetic robot for non-destructive testing on pipes. Designed a dense 4-layer PCB to drive DC motors and process ultrasonic ToF data locally using an STM32 MCU. Optimized for low noise and thermal efficiency.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Altium Designer</span>
+                        <span>STM32</span>
+                        <span>Power Electronics</span>
+                        <span>Sensors</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: Aerial Core -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center text-slate-600 font-mono text-xs z-0">
+                        [Insert Aerial_Core_Drone.png]
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">AERIAL CORE UAV</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Hardware integration for a heavy-lift drone equipped with a robotic manipulator for power line maintenance. Designed the PDB to handle dynamic loads and ensured electromagnetic compatibility (EMC) with the arm's servos.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>KiCad</span>
+                        <span>UAV Design</span>
+                        <span>High Current</span>
+                        <span>Robotics</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Formula Student -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center text-slate-600 font-mono text-xs z-0">
+                        [Insert FSAE_Car_Wiring.png]
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Driverless Racing Car</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Lead hardware designer for the autonomous vehicle. Engineered the wire harness and CAN Bus network connecting LiDAR, GPS, and the compute unit. Ensured reliability under high vibration and thermal stress.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Fusion 360</span>
+                        <span>CAN Bus</span>
+                        <span>Wiring Harness</span>
+                        <span>Automotive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Card 4: FPV Drones -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center text-slate-600 font-mono text-xs z-0">
+                        [Insert FPV_Drone.png]
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Custom FPV Drones</h3>
+                        <div class="flex gap-3 text-slate-400">
+                             <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Design and assembly of high-performance quadcopters. Features include ELRS long-range links, custom 3D-printed TPU mounts for antenna protection, and Betaflight PID tuning for flight dynamics optimization.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Betaflight</span>
+                        <span>3D Printing</span>
+                        <span>ELRS</span>
+                        <span>PID Tuning</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 max-w-5xl mx-auto px-6">
+        <h2 class="text-center text-2xl font-bold text-slate-200 mb-12 font-mono"><span class="text-cyan-400">&lt;</span>Technical Arsenal<span class="text-cyan-400">/&gt;</span></h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">EDA & CAD</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Altium Designer</li>
+                    <li>Fusion 360</li>
+                    <li>KiCad / Eagle</li>
+                    <li>SolidWorks</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Embedded</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>C / C++ (Firmware)</li>
+                    <li>STM32 / ESP32</li>
+                    <li>Arduino / Mbed</li>
+                    <li>Python (Scripting)</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Protocols</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>CAN Bus / CANopen</li>
+                    <li>I2C / SPI / UART</li>
+                    <li>Modbus TCP/IP</li>
+                    <li>Ethernet</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Hands-on</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>SMD Soldering</li>
+                    <li>Oscilloscope Analysis</li>
+                    <li>3D Printing (FDM)</li>
+                    <li>Rapid Prototyping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-24 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="font-mono text-cyan-400 text-sm mb-4">04. What's Next?</div>
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6">Get In Touch</h2>
+            <p class="text-slate-400 mb-10 text-lg">
+                I am currently open to new opportunities in Hardware Engineering and Embedded Systems. 
+                Whether you have a question about my PCBs or just want to say hi, my inbox is open.
+            </p>
+            
+            <div class="flex flex-col items-center gap-6">
+                <a href="mailto:campanile.1313@gmail.com" class="px-8 py-4 bg-transparent border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 rounded font-mono font-bold transition-all">
+                    Say Hello
+                </a>
+                
+                <div class="flex gap-6 mt-8">
+                    <a href="https://github.com/pasqcampanile" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/pasquale-campanile-b218ba20a" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 font-mono text-xs text-slate-600">
+                <p>Designed & Built by Pasquale Campanile</p>
+                <p>Naples, IT • 2026</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

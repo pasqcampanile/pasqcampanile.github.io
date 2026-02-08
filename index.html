@@ -1,47 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Pasquale Campanile - Hardware & Mechatronic Engineer.">
+    <meta name="description" content="Portfolio of Pasquale Campanile, Hardware & Mechatronic Engineer specializing in PCB Design, UAVs, and Embedded Systems.">
     <title>Pasquale Campanile | Hardware Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        accent: {
+                        tech: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
-                            400: '#38bdf8',
                             500: '#0ea5e9',
                             600: '#0284c7',
                             900: '#0c4a6e',
-                        },
-                        slate: {
-                            850: '#1e293b',
-                            900: '#0f172a',
+                            dark: '#0f172a',
                         }
                     },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'fade-in': 'fadeIn 0.4s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
                     }
                 }
             }
@@ -49,421 +34,401 @@
     </script>
     <style>
         body {
-            background-color: #ffffff;
-            /* Subtle modern grid background */
-            background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
-                              linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-color: #020617;
+            color: #e2e8f0;
+        }
+        .bg-grid {
             background-size: 40px 40px;
-            color: #0f172a;
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
         }
-        /* Glass effect utilities */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-        .nav-link.active {
-            color: #0ea5e9;
-            font-weight: 600;
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
         }
-        .bento-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .neon-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
-        .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -5px rgba(14, 165, 233, 0.15);
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(45deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.5) 50%, rgba(56,189,248,0) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen overflow-x-hidden">
+<body class="antialiased selection:bg-cyan-500/30">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 supports-[backdrop-filter]:bg-white/60">
+    <!-- Background Grid Animation -->
+    <div class="fixed inset-0 z-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" onclick="renderPage('home')" class="group flex items-center gap-3">
-                <div class="w-10 h-10 bg-slate-900 text-white flex items-center justify-center rounded-xl font-display font-bold text-lg group-hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/20">
-                    PC
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-display font-bold text-slate-900 leading-none">Pasquale Campanile</span>
-                    <span class="text-[10px] text-slate-500 font-bold tracking-widest uppercase mt-1">Eng. Portfolio</span>
-                </div>
+            <a href="#" class="font-mono font-bold text-xl tracking-tighter flex items-center gap-2 group">
+                <span class="text-cyan-400 group-hover:neon-text transition-all duration-300">&lt;PC;</span>
+                <span class="hidden sm:inline text-slate-300">Campanile_Eng</span>
             </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full border border-slate-200/60">
-                <button onclick="renderPage('home')" class="nav-link px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white transition-all" id="nav-home">Home</button>
-                <button onclick="renderPage('projects')" class="nav-link px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white transition-all" id="nav-projects">Projects</button>
-                <button onclick="renderPage('about')" class="nav-link px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white transition-all" id="nav-about">Profile</button>
-                <button onclick="renderPage('contact')" class="nav-link px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white transition-all" id="nav-contact">Contact</button>
-            </div>
-
-            <!-- CTA -->
-            <div class="hidden md:block">
-                <a href="cv_campanile.pdf" target="_blank" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-accent-600 transition-all shadow-xl shadow-slate-200/50 flex items-center gap-2 group">
-                    <span>Resume</span>
-                    <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                </a>
-            </div>
             
-             <!-- Mobile Menu Button -->
-             <button class="md:hidden text-slate-600 p-2" onclick="alert('Switch to desktop for full experience')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+            <div class="hidden md:flex space-x-1 font-mono text-xs text-slate-400">
+                <a href="#about" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">01. About</a>
+                <a href="#experience" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">02. Experience</a>
+                <a href="#projects" class="px-4 py-2 hover:text-cyan-400 hover:bg-cyan-950/30 rounded transition-colors">03. Projects</a>
+                <!-- LINK AL CV NEL MENU -->
+                <!-- Carica il tuo file PDF nella stessa cartella di questo file e rinominalo cv_campanile.pdf -->
+                <a href="cv_campanile.pdf" target="_blank" class="px-4 py-2 text-cyan-400 border border-cyan-500/30 rounded hover:bg-cyan-500/10 transition-colors">Resume</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Content Area (Dynamic) -->
-    <main id="app" class="flex-grow pt-20">
-        <!-- Content will be injected here by JS -->
-    </main>
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-40 pb-32 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="font-mono text-cyan-400 mb-6 tracking-wide text-sm animate-fade-in-up">Hi, my name is</div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tight text-slate-100 mb-4 leading-tight">
+                Pasquale Campanile.
+            </h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-slate-400 mb-8 leading-tight">
+                I build the nervous systems of <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">autonomous machines.</span>
+            </h2>
+            
+            <p class="max-w-2xl text-lg text-slate-400 leading-relaxed mb-12">
+                I am a <strong>Mechatronic & Hardware Engineer</strong> specializing in high-density PCB design, embedded systems, and aerial robotics. Currently finalizing my Master's in Electronic Engineering at <span class="text-cyan-300">Federico II</span>, I bridge the gap between complex algorithms and physical hardware.
+            </p>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 mt-auto relative overflow-hidden">
-        <div class="absolute inset-0 bg-slate-50/50 -z-10"></div>
-        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                Open to work opportunities
+            <div class="flex flex-wrap gap-4 font-mono text-sm">
+                <a href="#projects" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white rounded font-bold transition-all hover:shadow-[0_0_20px_rgba(8,145,178,0.4)]">
+                    Check my work
+                </a>
+                <a href="https://github.com/pasqcampanile" target="_blank" class="px-8 py-4 glass-panel hover:bg-slate-800 text-cyan-300 rounded font-bold transition-all border border-cyan-900 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    github/pasqcampanile
+                </a>
             </div>
-            <div class="text-sm text-slate-400">
-                &copy; 2026 Pasquale Campanile. Made with precision.
+        </div>
+        
+        <!-- Decoration: PCB Traces hint -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full opacity-10 hidden lg:block pointer-events-none">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#06b6d4" stroke-width="0.5" d="M10,10 L50,10 L50,50 L100,50 M150,150 L100,150 L100,100" />
+                <circle cx="50" cy="50" r="2" fill="#06b6d4" />
+                <circle cx="100" cy="50" r="2" fill="#06b6d4" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 max-w-4xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <span class="font-mono text-cyan-400 text-xl">02.</span>
+            <h2 class="text-3xl font-bold text-slate-100">Where I've Worked</h2>
+            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+        </div>
+
+        <div class="relative border-l border-slate-700 ml-3 space-y-16">
+            
+            <!-- Neabotics -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Hardware Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">June 2022 - Present</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ Neabotics / PrismaLab</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span><strong>Patent Inventor (Crawler):</strong> Led the electronic architecture design for a patented magnetic robot for NDT inspections. Achieved extreme miniaturization for operation in tight industrial pipelines.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Designed custom <strong>4-layer PCBs</strong> integrating STM32 MCUs, H-Bridge motor drivers, and high-efficiency DC/DC converters.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Developed <strong>ATEX-compliant</strong> hardware solutions for drones operating in explosive atmospheres, focusing on intrinsic safety and EMI shielding.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Engineered the <strong>PDB (Power Distribution Board)</strong> for the "Aerial Core" project, managing high-current loads for a drone-mounted robotic arm.</span>
+                    </li>
+                </ul>
             </div>
-            <div class="flex gap-6">
-                <a href="https://linkedin.com/in/pasquale-campanile-b218ba20a" target="_blank" class="text-slate-400 hover:text-accent-600 transition-colors">LinkedIn</a>
-                <a href="https://github.com/pasqcampanile" target="_blank" class="text-slate-400 hover:text-accent-600 transition-colors">GitHub</a>
+
+            <!-- UniNa Corse -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-cyan-500 transition-colors"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Embedded System Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">Sep 2020 - July 2023</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ UniNa Corse (Formula Student)</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Winner of the <strong>TeoRace Award</strong> for best embedded system implementation in Formula Student Italy.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Designed the complete <strong>wiring harness</strong> and control unit PCBs for the autonomous racing vehicle (Driverless class).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Implemented <strong>CAN Bus</strong> communication networks for real-time telemetry, LiDAR, and steering actuation.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3EM -->
+            <div class="pl-8 relative group">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-cyan-500 transition-colors"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Automation Engineer</h3>
+                    <span class="font-mono text-xs text-slate-500">Mar 2022 - May 2022</span>
+                </div>
+                <div class="text-cyan-500 font-mono text-sm mb-4">@ 3EM for Fincantieri</div>
+                
+                <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-none">
+                    <li class="flex gap-3">
+                        <span class="text-cyan-500 mt-1">▹</span>
+                        <span>Developed SCADA/HMI interfaces for HVAC systems on the "Explora I" cruise ship using CitectSCADA.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <span class="font-mono text-cyan-400 text-xl">03.</span>
+            <h2 class="text-3xl font-bold text-slate-100">Featured Projects</h2>
+            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Project Card 1: Crawler -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                    <!-- IMMAGINE CRAWLER -->
+                    <!-- Sostituisci src con: "images/crawler.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1599353987114-177c355bc351?auto=format&fit=crop&q=80&w=800" 
+                         alt="Crawler PCB Render" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Industrial NDT Crawler</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        A patented magnetic robot for non-destructive testing on pipes. Designed a dense 4-layer PCB to drive DC motors and process ultrasonic ToF data locally using an STM32 MCU. Optimized for low noise and thermal efficiency.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Altium Designer</span>
+                        <span>STM32</span>
+                        <span>Power Electronics</span>
+                        <span>Sensors</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: Aerial Core -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                    <!-- IMMAGINE DRONE AERIAL CORE -->
+                    <!-- Sostituisci src con: "images/aerial_core.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?auto=format&fit=crop&q=80&w=800" 
+                         alt="Aerial Core Drone" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">AERIAL CORE UAV</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Hardware integration for a heavy-lift drone equipped with a robotic manipulator for power line maintenance. Designed the PDB to handle dynamic loads and ensured electromagnetic compatibility (EMC) with the arm's servos.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>KiCad</span>
+                        <span>UAV Design</span>
+                        <span>High Current</span>
+                        <span>Robotics</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Formula Student -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                    <!-- IMMAGINE FORMULA SAE -->
+                    <!-- Sostituisci src con: "images/fsae.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1547038577-da80abbc4f19?auto=format&fit=crop&q=80&w=800" 
+                         alt="Formula SAE Wiring" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Driverless Racing Car</h3>
+                        <div class="flex gap-3 text-slate-400">
+                            <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Lead hardware designer for the autonomous vehicle. Engineered the wire harness and CAN Bus network connecting LiDAR, GPS, and the compute unit. Ensured reliability under high vibration and thermal stress.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Fusion 360</span>
+                        <span>CAN Bus</span>
+                        <span>Wiring Harness</span>
+                        <span>Automotive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Card 4: FPV Drones -->
+            <div class="glass-panel rounded-xl overflow-hidden group hover:shadow-[0_0_30px_rgba(8,145,178,0.2)] transition-all duration-300 tech-border">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                    <!-- IMMAGINE FPV DRONE -->
+                    <!-- Sostituisci src con: "images/fpv_drone.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1574357278720-d80654529326?auto=format&fit=crop&q=80&w=800" 
+                         alt="Custom FPV Drone" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">Custom FPV Drones</h3>
+                        <div class="flex gap-3 text-slate-400">
+                             <svg class="w-5 h-5 hover:text-cyan-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Design and assembly of high-performance quadcopters. Features include ELRS long-range links, custom 3D-printed TPU mounts for antenna protection, and Betaflight PID tuning for flight dynamics optimization.
+                    </p>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-cyan-500">
+                        <span>Betaflight</span>
+                        <span>3D Printing</span>
+                        <span>ELRS</span>
+                        <span>PID Tuning</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 max-w-5xl mx-auto px-6">
+        <h2 class="text-center text-2xl font-bold text-slate-200 mb-12 font-mono"><span class="text-cyan-400">&lt;</span>Technical Arsenal<span class="text-cyan-400">/&gt;</span></h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">EDA & CAD</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Altium Designer</li>
+                    <li>Fusion 360</li>
+                    <li>KiCad / Eagle</li>
+                    <li>SolidWorks</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Embedded</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>C / C++ (Firmware)</li>
+                    <li>STM32 / ESP32</li>
+                    <li>Arduino / Mbed</li>
+                    <li>Python (Scripting)</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Protocols</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>CAN Bus / CANopen</li>
+                    <li>I2C / SPI / UART</li>
+                    <li>Modbus TCP/IP</li>
+                    <li>Ethernet</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-slate-700 rounded hover:border-cyan-500/50 transition bg-slate-800/20">
+                <h4 class="text-cyan-400 font-bold mb-4 font-mono">Hands-on</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>SMD Soldering</li>
+                    <li>Oscilloscope Analysis</li>
+                    <li>3D Printing (FDM)</li>
+                    <li>Rapid Prototyping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-24 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="font-mono text-cyan-400 text-sm mb-4">04. What's Next?</div>
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6">Get In Touch</h2>
+            <p class="text-slate-400 mb-10 text-lg">
+                I am currently open to new opportunities in Hardware Engineering and Embedded Systems. 
+                Whether you have a question about my PCBs or just want to say hi, my inbox is open.
+            </p>
+            
+            <div class="flex flex-col items-center gap-6">
+                <a href="mailto:campanile.1313@gmail.com" class="px-8 py-4 bg-transparent border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 rounded font-mono font-bold transition-all">
+                    Say Hello
+                </a>
+                
+                <div class="flex gap-6 mt-8">
+                    <!-- TASTO DOWNLOAD CV ANCHE NEL FOOTER -->
+                    <a href="cv_campanile.pdf" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                         Download CV
+                    </a>
+
+                    <a href="https://github.com/pasqcampanile" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/pasquale-campanile-b218ba20a" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 font-mono text-xs text-slate-600">
+                <p>Designed & Built by Pasquale Campanile</p>
+                <p>Naples, IT • 2026</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Routing Logic -->
-    <script>
-        // --- PAGE CONTENT TEMPLATES ---
-        const pages = {
-            home: `
-                <section class="min-h-[85vh] flex items-center justify-center px-6 relative overflow-hidden animate-fade-in">
-                    <!-- Dynamic Background Elements -->
-                    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-200/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl -z-10" style="animation-delay: 1s"></div>
-                    
-                    <div class="max-w-5xl mx-auto text-center z-10">
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-slate-600 text-xs font-bold tracking-wide uppercase mb-8 animate-fade-in-up hover:scale-105 transition-transform cursor-default" style="animation-delay: 0.1s">
-                            <span class="text-xl">🚀</span> Mechatronic Engineer
-                        </div>
-                        
-                        <h1 class="text-6xl md:text-8xl font-display font-extrabold text-slate-900 mb-8 leading-[1] tracking-tight animate-fade-in-up" style="animation-delay: 0.2s">
-                            Bridging the gap between <br/>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-600 to-indigo-600">bits and atoms.</span>
-                        </h1>
-                        
-                        <p class="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto mb-12 leading-relaxed font-light animate-fade-in-up" style="animation-delay: 0.3s">
-                            Specialized in <strong>High-Density PCB Design</strong>, <strong>Power Electronics</strong>, and <strong>Aerial Robotics</strong>. I turn complex algorithms into physical movement.
-                        </p>
-
-                        <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s">
-                            <button onclick="renderPage('projects')" class="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-accent-600 transition-all shadow-xl shadow-slate-900/20 hover:-translate-y-1 flex items-center justify-center gap-2">
-                                Explore Projects
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </button>
-                            <button onclick="renderPage('contact')" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold hover:border-accent-300 hover:text-accent-600 transition-all hover:-translate-y-1 shadow-sm">
-                                Contact Me
-                            </button>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Marquee Section -->
-                <div class="border-y border-slate-100 bg-slate-50/50 py-8 overflow-hidden">
-                    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                         <span class="font-display font-bold text-lg flex items-center gap-2"><div class="w-2 h-2 bg-accent-500 rounded-full"></div>STM32</span>
-                         <span class="font-display font-bold text-lg flex items-center gap-2"><div class="w-2 h-2 bg-orange-500 rounded-full"></div>Altium Designer</span>
-                         <span class="font-display font-bold text-lg flex items-center gap-2"><div class="w-2 h-2 bg-yellow-500 rounded-full"></div>Fusion 360</span>
-                         <span class="font-display font-bold text-lg flex items-center gap-2"><div class="w-2 h-2 bg-blue-500 rounded-full"></div>Python</span>
-                         <span class="font-display font-bold text-lg flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div>Home Assistant</span>
-                    </div>
-                </div>
-            `,
-            
-            projects: `
-                <section class="max-w-7xl mx-auto px-6 py-20 animate-fade-in">
-                    <div class="mb-20 text-center max-w-3xl mx-auto">
-                        <h2 class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">Featured Projects</h2>
-                        <p class="text-lg text-slate-500">From patented industrial robots to 3D printed aerodynamic models. A mix of professional engineering and passionate making.</p>
-                    </div>
-
-                    <!-- CATEGORY: ENGINEERING & R&D -->
-                    <div class="flex items-center gap-4 mb-8">
-                        <h3 class="text-sm font-bold tracking-widest text-slate-400 uppercase">Engineering & R&D</h3>
-                        <div class="h-px bg-slate-200 flex-grow"></div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                        <!-- Project: Crawler -->
-                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden bento-card relative lg:col-span-2">
-                             <div class="absolute top-4 right-4 z-10">
-                                <span class="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-slate-700">PATENTED</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row h-full">
-                                <div class="md:w-1/2 bg-slate-100 relative overflow-hidden h-64 md:h-auto">
-                                     <img src="https://images.unsplash.com/photo-1599353987114-177c355bc351?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
-                                </div>
-                                <div class="md:w-1/2 p-8 flex flex-col justify-center">
-                                    <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">NDT Crawler Robot</h3>
-                                    <p class="text-slate-500 mb-6 text-sm leading-relaxed">
-                                        Designed the complete electronic architecture for a magnetic inspection robot. Created a dense 4-layer PCB layout integrating STM32 logic, H-Bridge drivers, and switching converters in a confined space.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-2 py-1 bg-accent-50 text-accent-700 text-xs font-bold rounded">Altium</span>
-                                        <span class="px-2 py-1 bg-accent-50 text-accent-700 text-xs font-bold rounded">Power Electronics</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project: Echo System -->
-                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden bento-card flex flex-col">
-                            <div class="h-48 bg-slate-100 relative overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 opacity-90">
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-display font-bold text-slate-900 mb-2">Concrete Echo System</h3>
-                                <p class="text-slate-500 text-sm mb-4">
-                                    Ultrasonic measurement system for concrete analysis. Signal processing on STM32 for Time-of-Flight calculation.
-                                </p>
-                                <div class="mt-auto flex gap-2">
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">Ultrasonics</span>
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">STM32</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project: FSAE -->
-                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden bento-card">
-                            <div class="h-48 bg-slate-100 relative overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1547038577-da80abbc4f19?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
-                                <div class="absolute top-3 right-3 bg-amber-400 text-amber-900 text-[10px] font-bold px-2 py-1 rounded shadow-sm">AWARD WINNER</div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-display font-bold text-slate-900 mb-2">Driverless Racing Car</h3>
-                                <p class="text-slate-500 text-sm mb-4">
-                                    Lead wiring & PCB designer for UniNa Corse. Implemented full-vehicle CAN Bus network for autonomous control.
-                                </p>
-                                <div class="flex gap-2">
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">Automotive</span>
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">CAN Bus</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project: Aerial Core -->
-                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden bento-card">
-                            <div class="h-48 bg-slate-100 relative overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-display font-bold text-slate-900 mb-2">Aerial Core PDB</h3>
-                                <p class="text-slate-500 text-sm mb-4">
-                                    High-current Power Distribution Board design for a drone with a robotic manipulator. EMI compliant.
-                                </p>
-                                <div class="flex gap-2">
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">KiCad</span>
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">High Power</span>
-                                </div>
-                            </div>
-                        </div>
-
-                         <!-- Project: Buck Converter -->
-                        <div class="group bg-white rounded-2xl border border-slate-200 overflow-hidden bento-card">
-                            <div class="h-48 bg-slate-50 relative overflow-hidden flex items-center justify-center">
-                                <!-- Abstract visualization for circuit -->
-                                <svg class="w-16 h-16 text-slate-300 group-hover:text-accent-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-display font-bold text-slate-900 mb-2">Buck Converter Design</h3>
-                                <p class="text-slate-500 text-sm mb-4">
-                                    University project: Synchronous Buck Converter design and simulation using Fusion 360 Electronics.
-                                </p>
-                                <div class="flex gap-2">
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">Fusion 360</span>
-                                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase">Simulation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY: MAKERSPACE & LAB -->
-                    <div class="flex items-center gap-4 mb-8">
-                        <h3 class="text-sm font-bold tracking-widest text-slate-400 uppercase">Makerspace & Personal Lab</h3>
-                        <div class="h-px bg-slate-200 flex-grow"></div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Project: PLECS PV -->
-                        <div class="group bg-slate-50 rounded-2xl border border-slate-200 p-6 bento-card hover:bg-white">
-                            <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">3kW Hybrid PV System</h3>
-                            <p class="text-slate-500 text-xs mb-3">
-                                Simulation of a photovoltaic system with battery storage using PLECS. Energy flow analysis.
-                            </p>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Simulation</span>
-                        </div>
-
-                         <!-- Project: Eurofighter -->
-                        <div class="group bg-slate-50 rounded-2xl border border-slate-200 p-6 bento-card hover:bg-white">
-                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Eurofighter Typhoon</h3>
-                            <p class="text-slate-500 text-xs mb-3">
-                                Detailed 3D printed RC model. Complex mechanical assembly and aerodynamic body design.
-                            </p>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">3D Printing</span>
-                        </div>
-
-                        <!-- Project: Scuba Diver -->
-                        <div class="group bg-slate-50 rounded-2xl border border-slate-200 p-6 bento-card hover:bg-white">
-                            <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Mechanical Scuba Diver</h3>
-                            <p class="text-slate-500 text-xs mb-3">
-                                Mechanical modeling and printing of a diver system. Focus on waterproofing and joints.
-                            </p>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Mechanics</span>
-                        </div>
-
-                        <!-- Project: Home Automation -->
-                        <div class="group bg-slate-50 rounded-2xl border border-slate-200 p-6 bento-card hover:bg-white">
-                             <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Smart Home Lab</h3>
-                            <p class="text-slate-500 text-xs mb-3">
-                                Home Assistant & KNX integration running on CasaOS. Custom IoT sensor nodes.
-                            </p>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Domotics</span>
-                        </div>
-                    </div>
-                </section>
-            `,
-
-            about: `
-                <section class="max-w-4xl mx-auto px-6 py-20 animate-fade-in">
-                    <div class="flex flex-col md:flex-row gap-12 items-start mb-20">
-                        <div class="md:w-2/3">
-                            <h2 class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">About Me</h2>
-                            <div class="prose prose-lg text-slate-500 leading-relaxed space-y-4">
-                                <p>
-                                    I don't just design circuits; I build systems. My background in <strong>Mechatronics</strong> combined with my Master's studies in <strong>Electronic Engineering</strong> (Federico II University) allows me to see the full picture—from the mechanics of a drone arm to the firmware controlling the ESCs.
-                                </p>
-                                <p>
-                                    Whether I'm debugging a CAN Bus line on a race car or fine-tuning the PIDs of an FPV drone, I apply a rigorous, logical approach to problem-solving.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="md:w-1/3 w-full bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                            <h3 class="font-bold text-slate-900 mb-4">Focus Areas</h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-center gap-3 text-sm text-slate-600">
-                                    <div class="w-2 h-2 bg-accent-500 rounded-full"></div> PCB Design & Layout
-                                </li>
-                                <li class="flex items-center gap-3 text-sm text-slate-600">
-                                    <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Embedded C/C++
-                                </li>
-                                <li class="flex items-center gap-3 text-sm text-slate-600">
-                                    <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Power Electronics
-                                </li>
-                                <li class="flex items-center gap-3 text-sm text-slate-600">
-                                    <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Rapid Prototyping
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline -->
-                    <h3 class="text-2xl font-display font-bold text-slate-900 mb-8 pb-4 border-b border-slate-100">Journey</h3>
-                    <div class="space-y-12 border-l border-slate-200 ml-3 pl-8 relative">
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[37px] top-1 w-4 h-4 bg-white border-2 border-accent-500 rounded-full"></div>
-                            <span class="text-xs font-bold text-accent-600 uppercase tracking-wide">June 2022 — Present</span>
-                            <h4 class="text-lg font-bold text-slate-900 mt-1">Hardware Engineer</h4>
-                            <div class="text-slate-500 text-sm mb-2">Neabotics / PrismaLab</div>
-                            <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
-                                Full-stack hardware development for NDT robots. Inventor of a patented magnetic crawler. 
-                                Designed ATEX-compliant avionics and high-power distribution boards for heavy-lift UAVs.
-                            </p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[37px] top-1 w-4 h-4 bg-slate-200 border-2 border-white rounded-full"></div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Sep 2020 — July 2023</span>
-                            <h4 class="text-lg font-bold text-slate-900 mt-1">Embedded System Engineer</h4>
-                            <div class="text-slate-500 text-sm mb-2">UniNa Corse (Formula Student)</div>
-                            <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
-                                E/E architecture design for driverless vehicle. Wiring harness production and CAN Bus implementation.
-                                <strong>TeoRace Award Winner</strong>.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            `,
-
-            contact: `
-                <section class="min-h-[70vh] flex items-center justify-center px-6 animate-fade-in">
-                    <div class="max-w-2xl w-full text-center">
-                        <h2 class="text-5xl md:text-6xl font-display font-bold text-slate-900 mb-6">Let's Build.</h2>
-                        <p class="text-xl text-slate-500 mb-12 leading-relaxed">
-                            Open to challenges in Hardware Engineering, UAV systems, and Embedded design. 
-                            Got a project? Let's connect.
-                        </p>
-                        
-                        <div class="flex flex-col items-center gap-4">
-                            <a href="mailto:campanile.1313@gmail.com" class="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-slate-200">
-                                campanile.1313@gmail.com
-                            </a>
-                            <div class="text-slate-400 text-sm mt-4">or find me on</div>
-                            <div class="flex gap-4 mt-2">
-                                <a href="https://linkedin.com/in/pasquale-campanile-b218ba20a" target="_blank" class="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-lg hover:border-accent-400 hover:text-accent-600 transition-colors font-bold">
-                                    LinkedIn
-                                </a>
-                                <a href="https://github.com/pasqcampanile" target="_blank" class="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-lg hover:border-accent-400 hover:text-accent-600 transition-colors font-bold">
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `
-        };
-
-        function renderPage(pageName) {
-            const app = document.getElementById('app');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            if (pages[pageName]) {
-                app.innerHTML = pages[pageName];
-                window.scrollTo(0, 0);
-            } else {
-                app.innerHTML = pages['home'];
-            }
-
-            navLinks.forEach(link => {
-                link.classList.remove('bg-slate-900', 'text-white');
-                link.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-white');
-                
-                if (link.id === `nav-${pageName}`) {
-                    link.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-white');
-                    link.classList.add('bg-slate-900', 'text-white');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPage('home');
-        });
-    </script>
 </body>
 </html>

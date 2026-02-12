@@ -200,10 +200,17 @@
                         <h2 class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">About Me</h2>
                         <div class="prose prose-lg text-slate-500 leading-relaxed space-y-4">
                             <p>
-                                I don't just design circuits; I build systems. My background in <strong>Mechatronics</strong> combined with my Master's studies in <strong>Electronic Engineering</strong> (Federico II University) allows me to see the full picture—from the mechanics of a drone arm to the firmware controlling the ESCs.
+                                I am a Mechatronic engineer with a strong background in designing and developing electronic boards and wiring 
+                                for innovative <strong>prototypes</strong>.
+                            </p> 
+                            <p>
+                                Expert in the full<strong> hardware development lifecycle</strong>: from component selection (BOM management, sensors, 
+                                actuators, MCUs) to multi-layer <strong>PCB design (4-6 layers)</strong> and wiring harness design for high-stress environments. 
                             </p>
                             <p>
-                                Whether I'm debugging a CAN Bus line on a race car or fine-tuning the PIDs of an FPV drone, I apply a rigorous, logical approach to problem-solving.
+                                I am passionate about finding creative solutions to technical challenges and always on the lookout for opportunities 
+                                to improve and innovate, my technical expertise and <strong>passion for electronics and motorsport</strong> have allowed me to 
+                                make significant contributions to projects where I work on.
                             </p>
                         </div>
                     </div>
@@ -222,6 +229,10 @@
                             <li class="flex items-center gap-3 text-sm text-slate-600">
                                 <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Rapid Prototyping
                             </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600">
+                                <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Laboratory instrumentation
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -338,7 +349,6 @@
                 title: 'NDT Crawler Robot',
                 category: 'Patented Technology',
                 tags: ['Altium', 'Power Electronics', 'STM32'],
-                //image: 'https://images.unsplash.com/photo-1599353987114-177c355bc351?auto=format&fit=crop&q=80&w=800',
                 image: 'images/crawler.png',
                 shortDesc: 'Designed the complete electronic architecture for a magnetic inspection robot. Created a dense 4-layer PCB layout integrating STM32 logic and H-Bridge drivers.',
                 fullDesc: `
@@ -383,11 +393,11 @@
                 title: 'Concrete Echo System',
                 category: 'R&D',
                 tags: ['Ultrasonics', 'STM32', 'Signal Processing'],
-                image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+                image: 'images/concrete.png',
                 shortDesc: 'Ultrasonic measurement system for concrete analysis. Signal processing on STM32 for Time-of-Flight calculation.',
                 fullDesc: `
                     <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
+                        <img src="images/concrete.png" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Concrete Echo System</h2>
                         </div>
@@ -420,15 +430,56 @@
                 `
             },
             {
+                id: 'aerial',
+                title: 'Aerial Core European Project',
+                category: 'UAV / Robotics',
+                tags: ['KiCad', 'High Power', 'EMC'],
+                image: 'images/aerialcore.jpeg',
+                shortDesc: 'High-current Power Distribution Board design for a drone with a robotic manipulator. EMI compliant.',
+                fullDesc: `
+                     <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
+                        <img src="images/aerialcore.jpeg" class="w-full h-full object-cover">
+                         <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Aerial Core PDB</h2>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12">
+                         <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
+                                <p>Part of the European AERIAL CORE project, this work focused on a heavy-lift drone capable of physical interaction using a robotic arm. The challenge was distributing power cleanly to both the drone motors and the robotic arm servos.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">Engineering Highlights</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>High Current PCB:</strong> Designed a PDB capable of handling 200A+ continuous current using heavy copper layers (3oz).</li>
+                                    <li><strong>EMI Suppression:</strong> Implemented strict filtering on the servo power lines to prevent back-EMF spikes from affecting the drone's flight controller.</li>
+                                    <li><strong>ATEX Compliance:</strong> Selected components and designed enclosures to meet intrinsic safety standards for potential operation in hazardous environments.</li>
+                                </ul>
+                            </div>
+                             <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">KiCad</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">EMI/EMC</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">High Current</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
                 id: 'fsae',
                 title: 'Driverless Racing Car',
                 category: 'Automotive',
                 tags: ['Automotive', 'CAN Bus', 'Wiring'],
-                image: 'https://images.unsplash.com/photo-1547038577-da80abbc4f19?auto=format&fit=crop&q=80&w=800',
+                image: 'images/uninacorse_222.jpg',
                 shortDesc: 'Lead wiring & PCB designer for UniNa Corse. Implemented full-vehicle CAN Bus network for autonomous control.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1547038577-da80abbc4f19?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
+                        <img src="images/uninacorse_222.jpg" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <span class="bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">AWARD WINNER</span>
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Driverless Racing Car</h2>
@@ -463,56 +514,15 @@
                 `
             },
             {
-                id: 'aerial',
-                title: 'Aerial Core PDB',
-                category: 'UAV / Robotics',
-                tags: ['KiCad', 'High Power', 'EMC'],
-                image: 'https://images.unsplash.com/photo-1579829366248-204fe8413f31?auto=format&fit=crop&q=80&w=800',
-                shortDesc: 'High-current Power Distribution Board design for a drone with a robotic manipulator. EMI compliant.',
-                fullDesc: `
-                     <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
-                         <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
-                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Aerial Core PDB</h2>
-                        </div>
-                    </div>
-                    <div class="p-8 md:p-12">
-                         <div class="grid md:grid-cols-3 gap-12">
-                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
-                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
-                                <p>Part of the European AERIAL CORE project, this work focused on a heavy-lift drone capable of physical interaction using a robotic arm. The challenge was distributing power cleanly to both the drone motors and the robotic arm servos.</p>
-                                
-                                <h4 class="font-bold text-slate-900 mt-6">Engineering Highlights</h4>
-                                <ul class="list-disc pl-5 space-y-2">
-                                    <li><strong>High Current PCB:</strong> Designed a PDB capable of handling 200A+ continuous current using heavy copper layers (3oz).</li>
-                                    <li><strong>EMI Suppression:</strong> Implemented strict filtering on the servo power lines to prevent back-EMF spikes from affecting the drone's flight controller.</li>
-                                    <li><strong>ATEX Compliance:</strong> Selected components and designed enclosures to meet intrinsic safety standards for potential operation in hazardous environments.</li>
-                                </ul>
-                            </div>
-                             <div class="space-y-6">
-                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">KiCad</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">EMI/EMC</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">High Current</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
                 id: 'buck',
                 title: 'Buck Converter Design',
                 category: 'University Project',
                 tags: ['Fusion 360', 'Simulation', 'Power'],
-                image: '', // No image provided, using abstract SVG in code
+                image: 'images/decs.png', 
                 shortDesc: 'University project: Synchronous Buck Converter design and simulation using Fusion 360 Electronics.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
-                        <svg class="w-32 h-32 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <img src="images/decs.png" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Buck Converter Design</h2>
                         </div>
@@ -539,6 +549,55 @@
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Power Electronics</span>
                                     </div>
                                 </div>
+                                <a href="File/buck.pdf" target="_blank" class="w-full px-4 py-3 bg-accent-500 text-white rounded-lg font-bold hover:bg-accent-600 transition-all shadow-md flex items-center justify-center gap-2 text-sm">
+                                    Download PDF
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 'plecs',
+                title: 'PV-Battery System Simulation',
+                category: 'University Project',
+                tags: ['Fusion 360', 'Simulation', 'Power'],
+                image: 'images/plecs_circuit.jpg', // No image provided, using abstract SVG in code
+                shortDesc: 'Simulation of a photovoltaic system with battery storage using PLECS. Energy flow analysis.',
+                fullDesc: `
+                     <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <img src="images/plecs_circuit.jpg" class="w-full h-full object-cover">
+                         <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Buck Converter Design</h2>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12">
+                         <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
+                                <p>Designed and simulated a complete residential photovoltaic system with battery energy storage. Used PLECS to model the MPPT algorithms, battery charge/discharge cycles, and grid interaction.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">Process</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>System Sizing & Analitics Modeling:</strong> Performed a linear dimensioning of the power stage, calculating the minimum inductance for the DC-DC Boost Converter. Sized the DCLink cap based on the specified ripple requirements.</li>
+                                    <li><strong>SPICE MPPT Implementation:</strong> Designed and simulated iterative Maximum Power Point Tracking (MPPT) strategies, comparing Perturb & Observe (P&O) and Incremental Conductance (IC) algorithms.</li>
+                                    <li><strong>BESS Management:</strong> Integrated a Battery Energy Storage System (BESS) with a bidirectional DC-DC converter. Programmed the logic to manage energy mismatches.</li>
+                                </ul>
+                            </div>
+                             <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">PLECS</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Power Electronics</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Photovoltaic system</span>
+                                    </div>
+                                </div>
+                                <a href="File/Tesina_EIP.pdf" target="_blank" class="w-full px-4 py-3 bg-accent-500 text-white rounded-lg font-bold hover:bg-accent-600 transition-all shadow-md flex items-center justify-center gap-2 text-sm">
+                                    Download PDF
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -548,29 +607,16 @@
 
         const makerProjects = [
             {
-                id: 'pv',
-                title: '3kW Hybrid PV System',
-                icon: 'sun', // Used to select SVG
-                shortDesc: 'Simulation of a photovoltaic system with battery storage using PLECS. Energy flow analysis.',
-                fullDesc: `
-                     <div class="bg-orange-50 p-12 h-64 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-orange-900 font-display">3kW Hybrid PV System</h2>
-                    </div>
-                    <div class="p-8 md:p-12">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
-                        <p class="text-slate-600 mb-6">Designed and simulated a complete residential photovoltaic system with battery energy storage. Used PLECS to model the MPPT algorithms, battery charge/discharge cycles, and grid interaction.</p>
-                        <div class="flex gap-2"><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">PLECS</span><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Simulation</span></div>
-                    </div>
-                `
-            },
-            {
                 id: 'eurofighter',
                 title: 'Eurofighter Typhoon',
                 icon: 'plane',
                 shortDesc: 'Detailed 3D printed RC model. Complex mechanical assembly and aerodynamic body design.',
                 fullDesc: `
-                     <div class="bg-blue-50 p-12 h-64 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-blue-900 font-display">Eurofighter Typhoon</h2>
+                     <div class="relative h-64 md:h-80 bg-blue-100 overflow-hidden flex items-center justify-center">
+                        <img src="images/eurofighter.jpg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Eurofighter Typhoon</h2>
+                        </div>
                     </div>
                     <div class="p-8 md:p-12">
                         <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
@@ -585,8 +631,11 @@
                 icon: 'water',
                 shortDesc: 'Mechanical modeling and printing of a diver system. Focus on waterproofing and joints.',
                 fullDesc: `
-                     <div class="bg-cyan-50 p-12 h-64 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-cyan-900 font-display">Mechanical Scuba Diver</h2>
+                     <div class="relative h-64 md:h-80 bg-cyan-100 overflow-hidden flex items-center justify-center">
+                        <img src="images/scuba.jpg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Mechanical Scuba Diver</h2>
+                        </div>
                     </div>
                     <div class="p-8 md:p-12">
                         <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
@@ -601,8 +650,11 @@
                 icon: 'home',
                 shortDesc: 'Home Assistant & KNX integration running on CasaOS. Custom IoT sensor nodes.',
                 fullDesc: `
-                     <div class="bg-green-50 p-12 h-64 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-green-900 font-display">Smart Home Lab</h2>
+                     <div class="relative h-64 md:h-80 bg-green-100 overflow-hidden flex items-center justify-center">
+                        <img src="images/homeassistant.png" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Smart Home Lab</h2>
+                        </div>
                     </div>
                     <div class="p-8 md:p-12">
                         <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>

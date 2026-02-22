@@ -122,7 +122,6 @@
         
         <!-- SECTION 1: HOME -->
         <section id="home" class="min-h-[90vh] flex items-center justify-center px-6 relative overflow-hidden">
-            <!-- Dynamic Background Elements -->
             <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-200/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl -z-10" style="animation-delay: 1s"></div>
             
@@ -232,7 +231,6 @@
                             <li class="flex items-center gap-3 text-sm text-slate-600">
                                 <div class="w-2 h-2 bg-accent-500 rounded-full"></div> Laboratory instrumentation
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -312,17 +310,12 @@
         </div>
     </footer>
 
-    <!-- PROJECT DETAIL MODAL (Hidden by default) -->
+    <!-- PROJECT DETAIL MODAL -->
     <div id="project-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Background backdrop -->
         <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
-
-        <!-- Modal panel -->
         <div class="fixed inset-0 z-10 overflow-y-auto">
             <div class="flex min-h-full items-end justify-center p-0 md:p-4 text-center sm:items-center sm:p-0">
                 <div class="relative transform overflow-hidden rounded-none md:rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-slate-200">
-                    
-                    <!-- Close Button -->
                     <div class="absolute top-4 right-4 z-20">
                         <button onclick="closeModal()" class="bg-white/80 backdrop-blur rounded-full p-2 text-slate-500 hover:text-slate-900 hover:bg-white shadow-sm border border-slate-200 transition-all">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -330,11 +323,7 @@
                             </svg>
                         </button>
                     </div>
-
-                    <!-- Modal Content Injected Here -->
-                    <div id="modal-content" class="bg-white">
-                        <!-- Content will be filled by JS -->
-                    </div>
+                    <div id="modal-content" class="bg-white"></div>
                 </div>
             </div>
         </div>
@@ -342,9 +331,8 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- PROJECT DATA SOURCE ---
         const engineeringProjects = [
-            {
+             {
                 id: 'crawler',
                 title: 'NDT Crawler Robot',
                 category: 'Patented Technology',
@@ -353,7 +341,7 @@
                 shortDesc: 'Designed the complete electronic architecture for a magnetic inspection robot. Created a dense 4-layer PCB layout integrating STM32 logic and H-Bridge drivers.',
                 fullDesc: `
                     <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="images/crawler.png" class="w-full h-full object-cover">
+                        <img src="images/crawler.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <span class="bg-accent-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">PATENTED</span>
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">NDT Crawler Robot</h2>
@@ -363,7 +351,7 @@
                         <div class="grid md:grid-cols-3 gap-12">
                             <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
                                 <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
-                                <p>This project involved the complete hardware design of a magnetic crawler robot used for non-destructive testing (NDT) on ferromagnetic industrial pipes. The main challenge was extreme miniaturization: fitting motor drivers, power management, and sensor interfaces into a highly constrained volume.</p>
+                                <p>This project involved the complete hardware design of an adhesion crawler robot used for non-destructive testing (NDT) on ferromagnetic industrial pipes. The main challenge was extreme miniaturization: fitting motor drivers, power management, and sensor interfaces into a highly constrained volume.</p>
                                 
                                 <h4 class="font-bold text-slate-900 mt-6">Key Engineering Challenges</h4>
                                 <ul class="list-disc pl-5 space-y-2">
@@ -380,7 +368,6 @@
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">STM32 MCU</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Power Electronics</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">SMD Soldering</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Ultrasonic Sensors</span>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +384,7 @@
                 shortDesc: 'Ultrasonic measurement system for concrete analysis. Signal processing on STM32 for Time-of-Flight calculation.',
                 fullDesc: `
                     <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="images/concrete.png" class="w-full h-full object-cover">
+                        <img src="images/concrete.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Concrete Echo System</h2>
                         </div>
@@ -412,7 +399,6 @@
                                 <ul class="list-disc pl-5 space-y-2">
                                     <li><strong>Analog Front End:</strong> Designed a low-noise amplifier chain to boost weak ultrasonic echo signals.</li>
                                     <li><strong>Digital Signal Processing:</strong> Implemented algorithms on an STM32 microcontroller to filter noise and detect the first arrival of the wave.</li>
-                                    <li><strong>User Interface:</strong> Integrated an OLED display and rotary encoder for field operation parameters.</li>
                                 </ul>
                             </div>
                              <div class="space-y-6">
@@ -438,7 +424,7 @@
                 shortDesc: 'High-current Power Distribution Board design for a drone with a robotic manipulator. EMI compliant.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="images/aerialcore.jpeg" class="w-full h-full object-cover">
+                        <img src="images/aerialcore.jpeg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Aerial Core PDB</h2>
                         </div>
@@ -447,13 +433,13 @@
                          <div class="grid md:grid-cols-3 gap-12">
                             <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
                                 <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
-                                <p>Part of the European AERIAL CORE project, this work focused on a heavy-lift drone capable of physical interaction using a robotic arm. The challenge was distributing power cleanly to both the drone motors and the robotic arm servos.</p>
+                                <p>Part of the European AERIAL CORE project, this work focused on a heavy-lift drone capable of physical interaction using a robotic arm.</p>
                                 
                                 <h4 class="font-bold text-slate-900 mt-6">Engineering Highlights</h4>
                                 <ul class="list-disc pl-5 space-y-2">
                                     <li><strong>High Current PCB:</strong> Designed a PDB capable of handling 200A+ continuous current using heavy copper layers (3oz).</li>
-                                    <li><strong>EMI Suppression:</strong> Implemented strict filtering on the servo power lines to prevent back-EMF spikes from affecting the drone's flight controller.</li>
-                                    <li><strong>ATEX Compliance:</strong> Selected components and designed enclosures to meet intrinsic safety standards for potential operation in hazardous environments.</li>
+                                    <li><strong>EMI Suppression:</strong> Implemented strict filtering on the servo power lines.</li>
+                                    <li><strong>ATEX Compliance:</strong> Selected components and designed enclosures to meet intrinsic safety standards.</li>
                                 </ul>
                             </div>
                              <div class="space-y-6">
@@ -479,7 +465,7 @@
                 shortDesc: 'Lead wiring & PCB designer for UniNa Corse. Implemented full-vehicle CAN Bus network for autonomous control.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-100 overflow-hidden">
-                        <img src="images/uninacorse_222.jpg" class="w-full h-full object-cover">
+                        <img src="images/uninacorse_222.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <span class="bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">AWARD WINNER</span>
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Driverless Racing Car</h2>
@@ -493,9 +479,8 @@
                                 
                                 <h4 class="font-bold text-slate-900 mt-6">Key Contributions</h4>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li><strong>Wiring Harness:</strong> Designed and manufactured a mil-spec wiring harness using Raychem DR-25 heat shrink and Deutsch connectors, focusing on reliability under vibration.</li>
-                                    <li><strong>CAN Bus Network:</strong> Architected a robust CAN network connecting the LiDAR, GPS, Steering Actuator, and the central NVidia Jetson compute unit.</li>
-                                    <li><strong>Safety Systems:</strong> Developed the Autonomous System State Indicator (ASSI) and Emergency Brake System (EBS) logic using redundancy for fail-safe operation.</li>
+                                    <li><strong>Wiring Harness:</strong> Designed and manufactured a mil-spec wiring harness using Raychem DR-25 heat shrink and Deutsch connectors.</li>
+                                    <li><strong>CAN Bus Network:</strong> Architected a robust CAN network connecting the LiDAR, GPS, Steering Actuator, and Jetson compute unit.</li>
                                 </ul>
                             </div>
                              <div class="space-y-6">
@@ -505,7 +490,6 @@
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Fusion 360</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">RapidHarness</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">CAN Bus</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Wire Harnessing</span>
                                     </div>
                                 </div>
                             </div>
@@ -522,7 +506,7 @@
                 shortDesc: 'University project: Synchronous Buck Converter design and simulation using Fusion 360 Electronics.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
-                        <img src="images/decs.png" class="w-full h-full object-cover">
+                        <img src="images/decs.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Buck Converter Design</h2>
                         </div>
@@ -532,7 +516,6 @@
                             <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
                                 <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
                                 <p>A deep dive into power electronics topology. This academic project involved calculating, simulating, and laying out a synchronous Buck converter.</p>
-                                
                                 <h4 class="font-bold text-slate-900 mt-6">Process</h4>
                                 <ul class="list-disc pl-5 space-y-2">
                                     <li><strong>Theoretical Calculation:</strong> Sizing of inductor and input/output capacitors based on ripple requirements.</li>
@@ -544,15 +527,10 @@
                                 <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
                                     <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Fusion 360 Electronics</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Fusion 360</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">SPICE</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Power Electronics</span>
                                     </div>
                                 </div>
-                                <a href="File/buck.pdf" target="_blank" class="w-full px-4 py-3 bg-accent-500 text-white rounded-lg font-bold hover:bg-accent-600 transition-all shadow-md flex items-center justify-center gap-2 text-sm">
-                                    Download PDF
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -563,26 +541,25 @@
                 title: 'PV-Battery System Simulation',
                 category: 'University Project',
                 tags: ['Fusion 360', 'Simulation', 'Power'],
-                image: 'images/plecs_circuit.jpg', // No image provided, using abstract SVG in code
+                image: 'images/plecs_circuit.jpg',
                 shortDesc: 'Simulation of a photovoltaic system with battery storage using PLECS. Energy flow analysis.',
                 fullDesc: `
                      <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
-                        <img src="images/plecs_circuit.jpg" class="w-full h-full object-cover">
+                        <img src="images/plecs_circuit.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e2e8f0\\'/><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24\\' fill=\\'%2364748b\\'>Image Placeholder</text></svg>'" class="w-full h-full object-cover">
                          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
-                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Buck Converter Design</h2>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">PV-Battery System</h2>
                         </div>
                     </div>
                     <div class="p-8 md:p-12">
                          <div class="grid md:grid-cols-3 gap-12">
                             <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
                                 <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Technical Overview</h3>
-                                <p>Designed and simulated a complete residential photovoltaic system with battery energy storage. Used PLECS to model the MPPT algorithms, battery charge/discharge cycles, and grid interaction.</p>
-                                
+                                <p>Designed and simulated a complete residential photovoltaic system with battery energy storage using PLECS.</p>
                                 <h4 class="font-bold text-slate-900 mt-6">Process</h4>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li><strong>System Sizing & Analitics Modeling:</strong> Performed a linear dimensioning of the power stage, calculating the minimum inductance for the DC-DC Boost Converter. Sized the DCLink cap based on the specified ripple requirements.</li>
-                                    <li><strong>SPICE MPPT Implementation:</strong> Designed and simulated iterative Maximum Power Point Tracking (MPPT) strategies, comparing Perturb & Observe (P&O) and Incremental Conductance (IC) algorithms.</li>
-                                    <li><strong>BESS Management:</strong> Integrated a Battery Energy Storage System (BESS) with a bidirectional DC-DC converter. Programmed the logic to manage energy mismatches.</li>
+                                    <li><strong>System Sizing:</strong> Linear dimensioning of the power stage, calculating the minimum inductance for the DC-DC Boost Converter.</li>
+                                    <li><strong>SPICE MPPT Implementation:</strong> Simulated iterative MPPT strategies, comparing P&O and IC algorithms.</li>
+                                    <li><strong>BESS Management:</strong> Integrated a Battery Energy Storage System with a bidirectional DC-DC converter.</li>
                                 </ul>
                             </div>
                              <div class="space-y-6">
@@ -591,13 +568,8 @@
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">PLECS</span>
                                         <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Power Electronics</span>
-                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Photovoltaic system</span>
                                     </div>
                                 </div>
-                                <a href="File/Tesina_EIP.pdf" target="_blank" class="w-full px-4 py-3 bg-accent-500 text-white rounded-lg font-bold hover:bg-accent-600 transition-all shadow-md flex items-center justify-center gap-2 text-sm">
-                                    Download PDF
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -605,23 +577,56 @@
             }
         ];
 
+        // --- UPDATED MAKERSPACE PROJECTS (ENGLISH) ---
         const makerProjects = [
             {
                 id: 'eurofighter',
-                title: 'Eurofighter Typhoon',
+                title: 'Eurofighter Typhoon RC',
                 icon: 'plane',
-                shortDesc: 'Detailed 3D printed RC model. Complex mechanical assembly and aerodynamic body design.',
+                shortDesc: '3D printed RC jet. Integration of 2x 70mm EDFs, Matek FC and FPV systems. Modeled in Solidworks.',
                 fullDesc: `
-                     <div class="relative h-64 md:h-80 bg-blue-100 overflow-hidden flex items-center justify-center">
-                        <img src="images/eurofighter.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
-                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Eurofighter Typhoon</h2>
+                     <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <img src="images/eurofighter.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%231e293b\\'/><path d=\\'M12 19l9 2-9-18-9 18 9-2zm0 0v-8\\' stroke=\\'%23475569\\' stroke-width=\\'2\\' fill=\\'none\\' stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\'/></svg>'" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900 to-transparent">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">AEROSPACE / RC</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Eurofighter Typhoon RC</h2>
                         </div>
                     </div>
                     <div class="p-8 md:p-12">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
-                        <p class="text-slate-600 mb-6">A complex 3D printing project involving the aerodynamic modeling of a Eurofighter Typhoon. The model was printed in lightweight PLA (LW-PLA) and assembled with internal reinforcements for RC flight.</p>
-                        <div class="flex gap-2"><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">3D Printing</span><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Aerodynamics</span></div>
+                        <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Project Overview</h3>
+                                <p>A personal project combining aerodynamic modeling, advanced materials 3D printing, and avionics integration. The goal was to design, print, and fly a working replica of a Eurofighter Typhoon managed via a dedicated Flight Controller.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">Technical Specs & BOM</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>CAD Modeling:</strong> Full aerodynamic and mechanical development in <strong>Solidworks</strong>, incorporating structural interlocking for electronics housing.</li>
+                                    <li><strong>3D Printing:</strong> Manufactured using a <strong>BambuLab P1P</strong> with expanded <strong>LW-PLA</strong> (Lightweight PLA) to maximize the thrust-to-weight ratio while maintaining structural rigidity.</li>
+                                    <li><strong>Avionics:</strong> The core system is a <strong>Matek F405-Wing</strong> Flight Controller, chosen for its robustness and fixed-wing setup capabilities.</li>
+                                    <li><strong>Propulsion:</strong> Equipped with two powerful <strong>70mm EDFs</strong> (Electric Ducted Fans) and corresponding high-amp ESCs, fully sourced via COTS on <strong>AliExpress</strong> to optimize costs without sacrificing performance.</li>
+                                    <li><strong>Control & FPV:</strong> <strong>ExpressLRS 2.4GHz</strong> receiver for a low-latency radio link (interfaced with a Thrustmaster RC transmitter), coupled with an FPV system (Camera + VTX) for first-person piloting.</li>
+                                </ul>
+
+                                <h4 class="font-bold text-slate-900 mt-6">Engineering Challenges & Solutions</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>CG (Center of Gravity) Balancing:</strong> Being a swept delta wing, calculating and physically positioning the LiPo batteries was crucial. I redesigned the battery compartment in Solidworks after initial tests to shift the mass forward, ensuring takeoff stability.</li>
+                                    <li><strong>Thermal & Power Management:</strong> Two 70mm EDFs draw extremely high peak currents (100A+). I had to properly size the silicone wires and position the ESCs within an air duct generated by auxiliary intakes to prevent thermal throttling.</li>
+                                    <li><strong>LW-PLA Rigidity:</strong> The expanded material is lightweight but brittle. I solved this by inserting carbon fiber spars into the wings during the slicing phase, effectively creating a composite structure.</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Solidworks</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">BambuLab P1P</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Matek F405</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">LW-PLA</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">ExpressLRS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             },
@@ -629,37 +634,120 @@
                 id: 'scuba',
                 title: 'Mechanical Scuba Diver',
                 icon: 'water',
-                shortDesc: 'Mechanical modeling and printing of a diver system. Focus on waterproofing and joints.',
+                shortDesc: 'Mechatronic underwater kinetic system. Custom seals, variable buoyancy, and waterproof electronics.',
                 fullDesc: `
-                     <div class="relative h-64 md:h-80 bg-cyan-100 overflow-hidden flex items-center justify-center">
-                        <img src="images/scuba.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
+                     <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <img src="images/scuba.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%231e293b\\'/><path d=\\'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\\' stroke=\\'%23475569\\' stroke-width=\\'2\\' fill=\\'none\\' stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\'/></svg>'" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900 to-transparent">
+                            <span class="bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">MECHATRONICS / KINEMATICS</span>
                             <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Mechanical Scuba Diver</h2>
                         </div>
                     </div>
                     <div class="p-8 md:p-12">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
-                        <p class="text-slate-600 mb-6">A mechanical design challenge focusing on waterproofing and movable joints. Designed in CAD and printed to test buoyancy and joint articulation under water.</p>
-                        <div class="flex gap-2"><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Mechanics</span><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">CAD</span></div>
+                         <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Project Overview</h3>
+                                <p>A mechatronic study focused on underwater operation. The project consists of an animated mechanical model of a scuba diver, designed to move autonomously while solving critical issues related to water ingress and buoyancy control.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">Technical Development</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Waterproofing:</strong> Study and implementation of dynamic O-ring seals on rotating shafts to allow motion transmission from the internal electronics (kept dry) to the external limbs.</li>
+                                    <li><strong>Mechanical Kinematics:</strong> CAD design of articulated joints to fluidly reproduce swimming motions, driven by a series of micro-servos and internal mechanical cams.</li>
+                                    <li><strong>Buoyancy Control:</strong> Accurate calculation of the balance between weight (lead ballasts) and buoyant force (3D printed internal air chambers) to achieve neutral buoyancy in fresh water.</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">CAD Design</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Kinematics</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Waterproofing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             },
             {
                 id: 'home',
-                title: 'Smart Home Lab',
+                title: 'Smart Home IoT Lab',
                 icon: 'home',
-                shortDesc: 'Home Assistant & KNX integration running on CasaOS. Custom IoT sensor nodes.',
+                shortDesc: 'Full local-first home automation network. Bridging KNX industrial standard with custom ESP32 nodes via Home Assistant.',
                 fullDesc: `
-                     <div class="relative h-64 md:h-80 bg-green-100 overflow-hidden flex items-center justify-center">
-                        <img src="images/homeassistant.png" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/80 to-transparent">
-                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Smart Home Lab</h2>
+                     <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <img src="images/homeassistant.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%231e293b\\'/><path d=\\'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6\\' stroke=\\'%23475569\\' stroke-width=\\'2\\' fill=\\'none\\' stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\'/></svg>'" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900 to-transparent">
+                            <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">IOT / DOMOTICS</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Smart Home IoT Lab</h2>
                         </div>
                     </div>
                     <div class="p-8 md:p-12">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Project Details</h3>
-                        <p class="text-slate-600 mb-6">My personal home lab running Home Assistant on CasaOS. I integrated standard KNX devices with custom ESP32-based sensor nodes to monitor temperature, humidity, and energy usage.</p>
-                        <div class="flex gap-2"><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">Domotics</span><span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600">IoT</span></div>
+                         <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Project Overview</h3>
+                                <p>A hybrid home automation architecture designed to maintain 100% operational capability on the local network (Local-First). The system acts as a bridge between wired industrial logic and the agility of modern wireless IoT development.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">System Architecture</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Core Server:</strong> Configured a Mini-PC running <strong>CasaOS</strong>, virtualizing <strong>Home Assistant Supervised</strong> for centralized management of automations, dashboards, and control logic.</li>
+                                    <li><strong>Industrial Integration (KNX):</strong> Interfaced the KNX bus (a robust standard for lighting and shutters) with the server via IP/Multicast protocol, mapping KNX datagrams into logical entities.</li>
+                                    <li><strong>Custom Sensor Nodes:</strong> Designed custom circuits based on <strong>ESP32/ESP8266</strong> microcontrollers programmed via <strong>ESPHome</strong>. These nodes acquire environmental data (BME280 sensors for T/H/P, PIR presence detectors) and communicate via MQTT protocol on the local broker.</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Home Assistant</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">KNX Bus</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">ESP32 & MQTT</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">CasaOS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 'steeringmod',
+                title: 'Thrustmaster T150 Custom Mod',
+                icon: 'bulb',
+                shortDesc: 'Hardware modification of a sim-racing wheel. Custom Arduino HID interface, magnetic shifters, and 3D printed GT-style rim.',
+                fullDesc: `
+                     <div class="relative h-64 md:h-80 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <img src="images/mod_volante_T150.png" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%231e293b\\'/><path d=\\'M12 19l9 2-9-18-9 18 9-2zm0 0v-8\\' stroke=\\'%23475569\\' stroke-width=\\'2\\' fill=\\'none\\' stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\'/></svg>'" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900 to-transparent">
+                            <span class="bg-amber-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">HARDWARE HACKING</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white font-display">Thrustmaster T150 Custom Mod</h2>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12">
+                         <div class="grid md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 space-y-6 text-slate-600 leading-relaxed">
+                                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">Project Overview</h3>
+                                <p>A reverse engineering and mechanical/electronic upgrade project aimed at transforming an entry-level sim-racing wheel (Thrustmaster T150) into a premium, GT3-inspired custom peripheral.</p>
+                                
+                                <h4 class="font-bold text-slate-900 mt-6">Electronic & Mechanical Modifications</h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Electronic Interface (HID):</strong> Bypassed the limiting original logic board of the steering wheel. I integrated an <strong>Arduino Pro Micro</strong> (ATmega32U4) board programmed to be natively recognized by the PC as a USB Joystick (HID device), handling simultaneous inputs with ultra-low latency.</li>
+                                    <li><strong>Magnetic Paddle Shifters:</strong> Designed and 3D printed a magnetic shifting mechanism. By using opposing neodymium magnets and precision micro-switches, I achieved a crisp, realistic tactile feedback.</li>
+                                    <li><strong>Mechanics & Quick Release:</strong> Replaced the original plastic rim. I CAD-modeled a mechanical adapter 3D printed in high-infill PETG (to withstand Force Feedback torsional forces) capable of hosting a custom GT rim and a button panel with rotary encoders.</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-4">Tech Stack</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Arduino (HID)</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">3D Printing</span>
+                                        <span class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-600">Reverse Engineering</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             }
@@ -674,7 +762,7 @@
                     ${p.id === 'fsae' ? '<div class="absolute top-3 right-3 z-10 bg-amber-400 text-amber-900 text-[10px] font-bold px-2 py-1 rounded shadow-sm">AWARD WINNER</div>' : ''}
                     
                     <div class="${p.id === 'crawler' ? 'md:w-1/2' : 'h-48'} bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                        ${p.image ? `<img src="${p.image}" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ${p.id !== 'crawler' ? 'opacity-90' : ''}">` : 
+                        ${p.image ? `<img src="${p.image}" onerror="this.style.display='none'" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ${p.id !== 'crawler' ? 'opacity-90' : ''}">` : 
                         `<svg class="w-16 h-16 text-slate-300 group-hover:text-accent-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`}
                     </div>
                     
@@ -697,7 +785,8 @@
                 sun: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>',
                 plane: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>',
                 water: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>',
-                home: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>'
+                home: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>',
+                bulb: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"></path>',
             };
             
             // Colors map for icons
@@ -705,7 +794,8 @@
                 sun: 'bg-orange-100 text-orange-600',
                 plane: 'bg-blue-100 text-blue-600',
                 water: 'bg-cyan-100 text-cyan-600',
-                home: 'bg-green-100 text-green-600'
+                home: 'bg-green-100 text-green-600',
+                bulb: 'bg-amber-100 text-amber-600'
             };
 
             grid.innerHTML = makerProjects.map(p => `
@@ -715,7 +805,7 @@
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">${p.title}</h3>
                     <p class="text-slate-500 text-xs mb-3 flex-grow">${p.shortDesc}</p>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">View Details &rarr;</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide group-hover:text-accent-500 transition-colors">View Details &rarr;</span>
                 </div>
             `).join('');
         }
@@ -725,33 +815,26 @@
             const modal = document.getElementById('project-modal');
             const content = document.getElementById('modal-content');
             
-            // Find project in both lists
             const project = [...engineeringProjects, ...makerProjects].find(p => p.id === projectId);
             
             if(!project) return;
 
-            // Populate Content
             content.innerHTML = project.fullDesc;
-
-            // Show Modal
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('project-modal');
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.style.overflow = '';
         }
 
-        // Close on backdrop click
         document.getElementById('modal-backdrop').addEventListener('click', closeModal);
-        // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderEngineeringGrid();
             renderMakerGrid();
